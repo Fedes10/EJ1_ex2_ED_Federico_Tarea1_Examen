@@ -11,7 +11,7 @@ Bienvenido a la documentación técnica del proyecto **EJ1_ex2_ED_Federico_Tarea
 El programa ofrece una interfaz gráfica de usuario (GUI) intuitiva basada en ventanas, permitiendo al usuario realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) sobre películas y directores, así como visualizar estadísticas de ventas.
 
 
-## 🚀 Funcionalidades Principales
+## Funcionalidades Principales
 
 ### 1. Menú Principal (`Design.java`)
 Es el punto de entrada visual de la aplicación. Ofrece acceso rápido a las distintas secciones mediante botones interactivos con efectos visuales (`MouseListener` para cambio de iconos al pasar el ratón).
