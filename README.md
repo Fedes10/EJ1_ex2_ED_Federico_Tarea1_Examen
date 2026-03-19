@@ -2,66 +2,46 @@
 
 [![Ver Documentación](https://img.shields.io/badge/Web-Ver%20Documentacion-darkblue)](https://fedes10.github.io/EJ1_ex2_ED_Federico_Tarea1_Examen/)
 
-# Sistema de Gestión de Películas, Examen Federico
+# Proyecto Cine - Examen Federico
 
-Bienvenido a la documentación técnica del proyecto **EJ1_ex2_ED_Federico_Tarea1_Examen**. Esta es una aplicación de escritorio desarrollada en **Java** diseñada para la gestión administrativa de un cine o videoclub.
+¡Hola! Este es el proyecto que he hecho para la tarea del examen. Básicamente es un programa en **Java** para manejar un cine o un videoclub de forma sencilla.
 
-## 📄 Descripción General
+## ¿De qué va esto?
 
-El programa ofrece una interfaz gráfica de usuario (GUI) intuitiva basada en ventanas, permitiendo al usuario realizar operaciones CRUD (Crear, Leer, Actualizar, Borrar) sobre películas y directores, así como visualizar estadísticas de ventas.
+Es una aplicación de ventanas donde puedes ver, añadir y borrar películas y directores. También puedes ver cómo van las ventas con un gráfico.
 
+## ¿Qué hace el programa?
 
-## Funcionalidades Principales
+### 1. El Menú (`Design.java`)
+Es la pantalla que sale al principio. Tiene botones con imágenes que cambian cuando pasas el ratón por encima (efecto visual). Desde aquí vas a las otras partes.
+*   **Lo más chulo:** Hay un botón de estadísticas que te abre una ventana con un gráfico de barras usando una librería externa. Te enseña cuánto se ha vendido.
 
-### 1. Menú Principal (`Design.java`)
-Es el punto de entrada visual de la aplicación. Ofrece acceso rápido a las distintas secciones mediante botones interactivos con efectos visuales (`MouseListener` para cambio de iconos al pasar el ratón).
-*   **Funcionalidad destacada:** Generación de gráficos estadísticos. Al hacer clic en el botón de estadísticas, la aplicación consulta la base de datos y utiliza la librería **JFreeChart** para mostrar un gráfico de barras con el total de ventas por película.
-
-### 2. Gestión de Películas y Directores
-*   **Agregar (`Ajouter_Film.java`):**
-    *   Permite registrar una nueva película especificando título, precio y género (Romance, Acción, Ciencia Ficción).
-    *   **Lógica dinámica:** Ofrece la opción de seleccionar un director existente desde una lista desplegable (`JComboBox`) o registrar un nuevo director en el mismo formulario mediante botones de opción (`JRadioButton`).
-*   **Eliminar (`Supprimer_Film.java`):**
-    *   Permite dar de baja películas o directores.
-    *   La interfaz se adapta dinámicamente: al elegir borrar una película, muestra la lista de películas; al elegir director, muestra la lista de directores.
+### 2. Gestionar Pelis y Directores
+*   **Añadir Pelis (`Ajouter_Film.java`):**
+    Aquí metes el título, precio y de qué género es la peli.
+    *   Puedes elegir un director que ya exista de una lista o crear uno nuevo ahí mismo activando una opción.
+*   **Borrar cosas (`Supprimer_Film.java`):**
+    Sirve para quitar películas o directores que ya no quieras. La pantalla cambia según lo que elijas borrar.
 
 ### 3. Ventas
-*   Incluye un módulo de ventas (referenciado como `Vente_Film`) accesible desde el menú principal para gestionar las transacciones.
+*   Hay una parte para gestionar las ventas (`Vente_Film`).
 
-## 🛠️ Stack Tecnológico
+## ¿Qué he usado para hacerlo?
 
-El proyecto utiliza las siguientes tecnologías y librerías:
+- **Java:** El lenguaje de programación.
+- **Ventanas (Swing):** Para hacer todos los botones, cuadros de texto y las pantallas.
+- **Base de Datos:** Uso JDBC para guardar las cosas y que no se pierdan al cerrar.
+- **JFreeChart:** Una librería que bajé para que el gráfico de barras se vea bien.
 
-*   **Lenguaje:** Java SE.
-*   **Interfaz Gráfica (GUI):**
-    *   **Java Swing:** Uso extensivo de componentes como `JFrame`, `JPanel`, `JLabel` (usados como botones con imágenes), `JComboBox`, `JTextField` y `JRadioButton`.
-    *   **AWT:** Manejo de eventos (`ActionListener`, `MouseAdapter`) y diseño (`LayoutManagers`).
-*   **Base de Datos:**
-    *   **JDBC:** Conectividad nativa para ejecutar sentencias SQL (`Statement`, `PreparedStatement`, `ResultSet`).
-    *   La conexión se gestiona centralizadamente (referencia a `Main.connection`).
-*   **Visualización de Datos:**
-    *   **JFreeChart:** Librería externa utilizada para renderizar gráficos de barras (`ChartFactory.createBarChart`) basados en los datos obtenidos mediante `JDBCCategoryDataset`.
+## Archivos importantes
 
-## 📂 Estructura del Código
+- **`Design`**: La pantalla principal.
+- **`Ajouter_Film`**: La pantalla de añadir.
+- **`Supprimer_Film`**: La pantalla de borrar.
+- **`Film` y `Realisateur`**: Son las clases que se encargan de hablar con la base de datos (hacer los INSERT, DELETE y SELECT).
+- **`Main`**: Donde conecto con la base de datos.
 
-### Paquete `projet`
+## Notas para que funcione
 
-| Clase | Responsabilidad |
-| :--- | :--- |
-| **`Design`** | Ventana principal. Orquesta la navegación y visualiza el gráfico de ventas. |
-| **`Ajouter_Film`** | Formulario de alta. Maneja validaciones de entrada y lógica condicional para directores nuevos vs. existentes. |
-| **`Supprimer_Film`** | Formulario de baja. Carga datos en tiempo real desde la BD para poblar las listas de selección. |
-| **`Film`** | (Clase de Modelo/DAO) Encapsula la lógica de acceso a datos para la entidad Película (métodos `insert`, `select`, `sup_film`). |
-| **`Realisateur`** | (Clase de Modelo/DAO) Encapsula la lógica para la entidad Director (métodos `insert`, `select`, `sup_rel`). |
-| **`Main`** | (Clase de Utilidad) Se encarga de establecer la conexión con la base de datos. |
-
-## 📋 Requisitos de Ejecución
-
-1.  **JDK Instalado:** Versión compatible con Java Swing.
-2.  **Librerías Externas:**
-    *   `jfreechart-x.x.x.jar`
-    *   `jcommon-x.x.x.jar`
-3.  **Base de Datos:**
-    *   Debe estar accesible y configurada en la clase `Main`.
-    *   Tablas requeridas: `Film`, `Realisateur`, `Vente`.
-    *   Recursos (Imágenes): Las rutas a las imágenes están hardcodeadas (ej. `C:\Users\Hatem\...`), por lo que se recomienda actualizarlas a rutas relativas para asegurar la portabilidad del proyecto.
+1. Necesitas las librerías `jfreechart` y `jcommon` para que no de error.
+2. **Importante:** Las rutas de las imágenes en el código están puestas con la ruta de mi PC (`C:\Users\Hatem\...`), así que si lo pruebas en otro ordenador igual no se ven las fotos a menos que lo cambies.
