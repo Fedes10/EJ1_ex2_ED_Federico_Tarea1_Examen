@@ -2,11 +2,12 @@
 
 [![Ver Documentación](https://img.shields.io/badge/Web-Ver%20Documentacion-darkblue)](https://fedes10.github.io/EJ1_ex2_ED_Federico_Tarea1_Examen/)
 
-# Proyecto Cine - Examen Federico
+# Proyecto Cine - Examen Federicos
 
-¡Hola! Este es el proyecto que he hecho para la tarea del examen. Básicamente es un programa en **Java** para manejar un cine o un videoclub de forma sencilla.
+Este programa se basa o prentende ser un reproductor de películas
+![alt text](image.png)
 
-## ¿De qué va esto?
+## Descripción
 
 Es una aplicación de ventanas donde puedes ver, añadir y borrar películas y directores. También puedes ver cómo van las ventas con un gráfico.
 
