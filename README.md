@@ -1,6 +1,6 @@
 
 
-[![Ver Documentación](https://img.shields.io/badge/Web-Ver%20Presentación-darkgreen)](https://fedes10.github.io/EJ1_ex2_ED_Federico_Tarea1_Examen/)
+[![Ver Documentación](https://img.shields.io/badge/Web-Ver%20Documentacion-darkblue)](https://fedes10.github.io/EJ1_ex2_ED_Federico_Tarea1_Examen/)
 
 # Sistema de Gestión de Películas, Examen Federico
 
